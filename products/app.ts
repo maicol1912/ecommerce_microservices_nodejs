@@ -1,6 +1,6 @@
 import express,{ Application,Request,Response } from "express";
 import dotenv from "dotenv"
-
+import cors from "cors"
 export default class App{
     private app:Application;
     private port:string;
@@ -22,13 +22,14 @@ export default class App{
     }
 
     routes(){
-        this.app.get("/product", (req: Request, res: Response) => {
+        this.app.get("/", (req: Request, res: Response) => {
             res.send("hello from product")
         })
     }
 
     midlewares(){
-
+        this.app.use(cors())
+        this.app.use(express.json())
     }
 
     async dbconnect(){
