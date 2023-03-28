@@ -1,20 +1,16 @@
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv"
 import cors from "cors"
+import * as config from "./config/configApp"
+import { connectDB } from "./database/connection";
 
 export default class App {
     private app: Application;
     private port: string;
 
     constructor() {
-        if (process.env.NODE_ENV != 'prod') {
-            dotenv.config({ path: '.env.dev' })
-        }
-        else{
-            dotenv.config({path:`.env.prod`})
-        }
         this.app = express();
-        this.port = process.env.PORT || '3001'
+        this.port = config.PORT
         this.listen()
         this.midlewares()
         this.routes()
@@ -39,6 +35,6 @@ export default class App {
     }
 
     async dbconnect() {
-
+        await connectDB()
     }
 }
