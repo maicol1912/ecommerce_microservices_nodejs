@@ -1,14 +1,18 @@
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv"
 import cors from "cors"
-import proxy from "express-http-proxy"
 
 export default class App {
     private app: Application;
     private port: string;
 
     constructor() {
-        dotenv.config()
+        if (process.env.NODE_ENV != 'prod') {
+            dotenv.config({ path: '.env.dev' })
+        }
+        else{
+            dotenv.config({path:`.env.prod`})
+        }
         this.app = express();
         this.port = process.env.PORT || '3001'
         this.listen()

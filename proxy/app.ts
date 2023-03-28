@@ -8,7 +8,12 @@ export default class App {
     private port: string;
 
     constructor() {
-        dotenv.config()
+        if (process.env.NODE_ENV != 'prod') {
+            dotenv.config({ path: '.env.dev' })
+        }
+        else {
+            dotenv.config({ path: `.env.prod` })
+        }
         this.app = express();
         this.port = process.env.PORT || '3004'
         this.listen()

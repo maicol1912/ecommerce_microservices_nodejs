@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.ts"
+    "start": "set NODE_ENV=prod && nodemon index.ts",
+    "dev": "set NODE_ENV=dev && nodemon index.ts"
   },
   "keywords": [],
   "author": "",
