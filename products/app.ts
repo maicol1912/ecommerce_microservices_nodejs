@@ -1,6 +1,8 @@
 import express,{ Application,Request,Response } from "express";
-import dotenv from "dotenv"
 import cors from "cors"
+import { connectDB } from "./database/connection";
+import * as config from "./config/configApp"
+
 export default class App{
     private app:Application;
     private port:string;
@@ -8,7 +10,7 @@ export default class App{
     constructor(){
         
         this.app = express();
-        this.port = process.env.PORT || '3002'
+        this.port = config.PORT || '3002'
         this.listen()
         this.midlewares()
         this.routes()
@@ -32,7 +34,7 @@ export default class App{
         this.app.use(express.json())
     }
 
-    async dbconnect(){
-
+    async dbconnect() {
+        await connectDB()
     }
 }

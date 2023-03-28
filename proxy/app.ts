@@ -24,7 +24,7 @@ export default class App {
 
     listen() {
         this.app.listen(this.port, () => {
-            console.log(`Server initialized in port3 ${this.port}`)
+            console.log(`Server initialized in port ${this.port}`)
         })
     }
 

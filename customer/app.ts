@@ -1,5 +1,4 @@
 import express, { Application, Request, Response } from "express";
-import dotenv from "dotenv"
 import cors from "cors"
 import * as config from "./config/configApp"
 import { connectDB } from "./database/connection";
