@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors"
-import * as config from "./config/configApp"
-import { connectDB } from "./database/connection";
+import * as config from "./src/config/configApp"
+import { connectDB } from "./src/database/connection";
 
 export default class App {
     private app: Application;

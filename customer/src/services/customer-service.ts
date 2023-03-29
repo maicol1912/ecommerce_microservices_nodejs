@@ -3,7 +3,7 @@ import { ProductInterface } from "../interfaces/product.interface";
 const { FormateData, GeneratePassword, GenerateSalt, GenerateSignature, ValidatePassword } = require('../utils');
 
 
-class CustomerService {
+export class CustomerService {
     repository:any 
 
     constructor() {
@@ -121,4 +121,3 @@ class CustomerService {
 
 }
 
-module.exports = CustomerService;
