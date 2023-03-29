@@ -1,5 +1,4 @@
 import dotenv from "dotenv"
-import * as path from "path"
 
 if (process.env.NODE_ENV != 'prod') {
     dotenv.config({ path: '.env.dev' });

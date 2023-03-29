@@ -1,4 +1,4 @@
-import mongoose, { ConnectionOptions } from "mongoose"
+import mongoose from "mongoose"
 import * as config from "../config/configApp"
 
 export const connectDB = async () => {
